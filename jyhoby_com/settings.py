@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'gallery.apps.GalleryConfig',
     'todolist',
     'blog',
+    'products',
+    'account',
 
 ]
 
