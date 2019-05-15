@@ -1,6 +1,6 @@
-{% extends "theme.html" %}
+{% extends "todolist/base.html" %}
 
-{% block content%}
+{% block 主体 %}
 <div class="container">
 
 {% for product in products.all %}
@@ -19,4 +19,4 @@
 {% endfor %}	
 </div>
 
-{% endblock content%}
+{% endblock 主体 %}

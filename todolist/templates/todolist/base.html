@@ -33,8 +33,11 @@
           <li class="nav-item {% block 主页高亮 %}{% endblock 主页高亮 %}">
             <a class="nav-link" href="{% url 'todolist:主页' %}"><img src="{% static 'todolist/images/logo_list.png' %}" width="33" height="33 class="d-inline-block align-top" alt=""> 待办清单</a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url '产品列表主页' %}">产品列表</a>
+          </li>
           <li class="nav-item {% block 关于高亮 %}{% endblock 关于高亮 %}">
-            <a class="nav-link" href="{% url 'todolist:关于' %}">关于本站</a>
+            <a class="nav-link" href="{% url 'todolist:关于' %}">关于</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end" method="POST" action="" >
