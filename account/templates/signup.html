@@ -1,6 +1,6 @@
 {% extends "todolist/base.html" %}
 {% block 标题 %}注册{% endblock 标题 %}
-
+{% block 注册高亮 %}active{% endblock 注册高亮 %}
 {% block 主体 %}
 <h2 align="center">注册Product Hunt账户</h2>
 <form method='POST' action='{% url '注册页面' %}' align="center" >

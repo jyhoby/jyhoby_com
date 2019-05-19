@@ -1,5 +1,5 @@
 {% extends "todolist/base.html" %}
-
+{% block 产品列表高亮 %}active{% endblock 产品列表高亮 %}
 {% block 主体 %}
 <div class="container">
 
@@ -9,7 +9,7 @@
 		<img class="card-img-top" src="{{product.icon.url}}" alt="Card image cap">
 	</div class="card-body">
 	<div class="col-md-8" style="padding-left: 30px">
-	<h5><a href="products/{{product.id}}">{{product.title}}</a></h5>
+	<h5><a href="{{product.url}}">{{product.title}}</a></h5>
 	<br>
 	{{product.intro}}
 	</div>

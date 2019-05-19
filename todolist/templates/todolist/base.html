@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+ 
 
     <title>{% block 标题 %}Jyhoby主页{% endblock 标题 %}</title>
 
@@ -33,7 +33,7 @@
           <li class="nav-item {% block 主页高亮 %}{% endblock 主页高亮 %}">
             <a class="nav-link" href="{% url 'todolist:主页' %}"><img src="{% static 'todolist/images/logo_list.png' %}" width="33" height="33 class="d-inline-block align-top" alt=""> 待办清单</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {% block 产品列表高亮 %}{% endblock 产品列表高亮 %}">
             <a class="nav-link" href="{% url '产品列表主页' %}">产品列表</a>
           </li>
           <li class="nav-item {% block 关于高亮 %}{% endblock 关于高亮 %}">
@@ -42,21 +42,29 @@
         </ul>
         <form class="form-inline mt-2 mt-md-0 col-7 justify-content-end" method="POST" action="" >
           {% csrf_token %}
-          <input name="待办事项" class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search">
+          <input name="待办事项" class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search" >
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
         </form>
+        <ul class="navbar-nav mr-auto">
         {% if user.is_authenticated %}
-        <a class="nav-item nav-link" href="{% url '发布页面' %}">发布</a>
-        <a class="nav-item nav-link" href="Javascript:{document.getElementById('退出').submit()}">退出</a>
+        <li class="nav-item {% block 发布高亮 %}{% endblock 发布高亮 %}">
+          <a class="nav-link" href="{% url '发布页面' %}">发布</a>
+        </li>
+        <a class="nav-link" href="Javascript:{document.getElementById('退出').submit()}">退出</a>
         <form id='退出' method='POST' action='{% url '退出页面' %}' >
           {% csrf_token %}
           <input type='hidden' >
         </form>
 
         {%  else %}
-        <a class="nav-item nav-link" href="{% url '登录页面' %}">登录</a>
-        <a class="nav-item nav-link " href="{% url '注册页面' %}">注册</a>
+        <li class="nav-item {% block 登录高亮 %}{% endblock 登录高亮 %}">
+          <a class="nav-item nav-link" href="{% url '登录页面' %}">登录</a>
+        </li>
+        <li class="nav-item {% block 注册高亮 %}{% endblock 注册高亮 %}">
+          <a class="nav-item nav-link " href="{% url '注册页面' %}">注册</a>
+        </li>
         {% endif %}
+        </ul>
       </div>
     </nav>
 

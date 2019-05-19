@@ -1,6 +1,6 @@
-{% extends "theme.html" %}
-
-{% block content%}
+{% extends "todolist/base.html" %}
+{% block 发布高亮 %}active{% endblock 发布高亮 %}
+{% block 主体 %}
 <h2 align="center">发布新APP</h2>
 <form method='POST' action='{% url '发布页面' %}' align="center" enctype='multipart/form-data'>
 	{% csrf_token %}
@@ -32,4 +32,4 @@
 		 <br>
 	<input class='btn btn-primary' type='submit' value='发布' >
 </form>
-{% endblock content%}
+{% endblock 主体 %}
