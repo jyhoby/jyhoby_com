@@ -1,14 +1,16 @@
-{% extends "todolist/base.html" %}
+{% extends "menu.html" %}
 {% block 主体 %}
 <!doctype html>
 <html lang="en">
   {% load staticfiles %}
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <!-- <meta name="description" content=""> -->
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+    <link rel="stylesheet" href="{% static 'css/slidershow.css' %}">
+
 
     <title>Jyhoby主页</title>
 
@@ -17,9 +19,45 @@
 
   </head>
 
-  <body>
+  <body class="by2">
+    <div>
+    <div class="slidershow middle">
+      <div class="slides">
+        <input type="radio" name="r" id="r1" checked />
+        <input type="radio" name="r" id="r2" />
+        <input type="radio" name="r" id="r3" />
+        <input type="radio" name="r" id="r4" />
+        <input type="radio" name="r" id="r5" />
+    
+        <div class="slide s1">
+          <img src="{% static 'img/1.jpg' %}" alt="" />  
+        </div>
+        <div class="slide">
+          <img src="{% static 'img/2.jpg' %}" alt="" />  
+        </div>
+        <div class="slide">
+          <img src="{% static 'img/3.jpg' %}" alt="" />  
+        </div>
+        <div class="slide">
+          <img src="{% static 'img/4.jpg' %}" alt="" />  
+        </div>
+        <div class="slide">
+          <img src="{% static 'img/5.jpg' %}" alt="" />  
+        </div>    
+      </div>
+      
+      <div  id="t" class="navigation">
+        <label for="r1" class="bar"></label>
+        <label for="r2" class="bar"></label>
+        <label for="r3" class="bar"></label>
+        <label for="r4" class="bar"></label>
+        <label for="r5" class="bar"></label>       
+      </div>
+    </div>
+    </div>
 
-    <main role="main">
+
+   <!--  <main role="main">
 
       <section class="jumbotron text-center">
         <div class="container">
@@ -59,16 +97,51 @@
         <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
         <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
       </div>
-    </footer>
+    </footer> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
 
   </body>
+  <script>
+        var j=1;
+        var lis = t.getElementsByTagName("label")
+        lis[0].style.backgroundColor = "#fff"
+        for (var i=0; i<lis.length; i++) 
+        {
+          lis[i].index = i
+          lis[i].onclick = function()
+          {
+            j=this.index
+            for (let k=0; k<lis.length; k++) 
+                    {
+              lis[k].style.backgroundColor = "" //将所有列表颜色清空
+            }
+            // 再将点击的li加颜色
+      
+            lis[j].style.backgroundColor = "#fff"
+          }
+        }
+        
+        
+                setInterval(
+                  function()
+                  {
+                    lis[j].click();
+                    for (let k=0; k<lis.length; k++) 
+                    {
+              lis[k].style.backgroundColor = "" //将所有列表颜色清空
+            }
+        // 再将点击的li加颜色
+      
+            lis[j].style.backgroundColor = "#fff"
+                    if(j==4){j=0}
+                    else{j++;}
+                  },2000);
+        
+  </script>
 </html>
 
 {% endblock 主体 %}

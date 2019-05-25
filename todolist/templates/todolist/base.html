@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{% block css %}{% endblock css %}">
   </head>
 
+
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" id="topnav">
@@ -45,12 +46,15 @@
           <input name="待办事项" class="form-control mr-sm-2" type="text" placeholder="待办事项" aria-label="Search" >
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">添加</button>
         </form>
+
         <ul class="navbar-nav mr-auto">
+
         {% if user.is_authenticated %}
         <li class="nav-item {% block 发布高亮 %}{% endblock 发布高亮 %}">
           <a class="nav-link" href="{% url '发布页面' %}">发布</a>
         </li>
         <a class="nav-link" href="Javascript:{document.getElementById('退出').submit()}">退出</a>
+        
         <form id='退出' method='POST' action='{% url '退出页面' %}' >
           {% csrf_token %}
           <input type='hidden' >

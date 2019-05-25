@@ -1,23 +1,42 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" href="style.css" />
-		
+    	<meta name="author" content="">
+		<title>{% block 标题 %}Jyhoby主页{% endblock 标题 %}</title>
+		<!-- <link rel="stylesheet" href="../static/css/menu_style.css" /> -->
+		<link rel="stylesheet" href="{% static 'css/menu_style.css' %}">
+    	<link rel="stylesheet" href="{% block css %}{% endblock css %}">
 	</head>
 	<body>
 		
 		<ul class="box">
-			<li><a href="javascript:;">主页</a></li>
-			<li><a href="javascript:;">待办事项</a></li>
-			<li><a href="javascript:;">产品列表</a></li>
-			<li><a href="javascript:;">我的博客</a></li>
-			<li><a href="javascript:;">登录</a></li>
-			<li><a href="javascript:;">退出</a></li>
-					
+			<li class="leftlist"><a href="{% url '主页' %}">首页</a></li>
+			<li class="leftlist"><a href="{% url 'todolist:主页' %}">待办事项</a></li>
+			<li class="leftlist"><a href="{% url '产品列表主页' %}">产品列表</a></li>
+			<li class="leftlist"><a href="{% url 'todolist:关于' %}">关于</a></li>
+
+			{% if user.is_authenticated %}
+			
+			<li class="rightlist"><a href="Javascript:{document.getElementById('退出').submit()}">退出</a></li>
+			<li class="rightlist"><a href="{% url '发布页面' %}">发布</a></li>
+			<form id='退出' method='POST' action='{% url '退出页面' %}' >
+          	{% csrf_token %}
+          	<input type='hidden' >
+       		</form>
+			{%  else %}
+			
+			<li class="rightlist"><a href="{% url '注册页面' %}">注册</a></li>
+			<li class="rightlist"><a href="{% url '登录页面' %}">登录</a></li>
+			{% endif %}				
 		</ul>
-		
+
+		<main role="main" class="container">
+    	{% block 主体 %}
+    	{% endblock 主体 %}
+    	</main>
+
 		
 	</body>
 </html>
