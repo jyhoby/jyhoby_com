@@ -23,7 +23,8 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', views.home, name="主页"),
+    path('', views.welcome, name="欢迎页面"),
+    path('home', views.home, name="主页"),
     path('admin/', admin.site.urls),
     path('todo/', include(todolist.urls)),
     # path('', include(todolist.urls)),
