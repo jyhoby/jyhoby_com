@@ -2,9 +2,12 @@
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background: #34495E;
-	/*background: url();*/
+	/*background: #34495E;*/
+	background: url(../img/login.jpg);
 	background-size: cover;
+	overflow: auto;
+	width: 1349px;
+	height: 700px
 }
 
 .login_box{

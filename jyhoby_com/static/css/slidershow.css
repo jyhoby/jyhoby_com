@@ -1,15 +1,22 @@
 .by2{
 	margin: 0;
 	padding: 0;
-	background: #34495e;
+	background: #f4f5f7;
 	width:1349px;
-	height: 1400px;
+	height: 900px;
 	overflow: auto;
 }
 
+.homeimg{
+	width: 1349px;
+	/*position: fixed;*/
+	margin: 0;
+	padding: 0; 
+}
+
 .slidershow{
-	width: 700px;
-	height: 400px;
+	width: 500px;
+	height: 250px;
 	overflow: hidden;
 	
 }

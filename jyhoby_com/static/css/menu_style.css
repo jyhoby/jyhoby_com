@@ -3,14 +3,19 @@
 	padding: 0; 
 }
 
+
 .box{
 	margin-top: 0px;
 	font-size: 16px;
 	text-align: center;
-	letter-spacing: 1px;	
-	background-color: #212121;
-	clear: both;
-	overflow: hidden;
+	letter-spacing: 1px;
+	width:1349px;	
+	background-color: rgba(33,33,33);
+	/*background-color:rgba(154,189,215,0.6);*/
+	/*clear: both;*/
+	float: left;
+	/*overflow: hidden;*/
+	
 }
 
 .box *{
@@ -18,31 +23,30 @@
 	transition: all 0.35s ease;	
 }
 
-.box li{
+.box .li2{
 	display: inline-block;
 	list-style-position: outside;
 	margin: 8px 16px;
 
 }
-
-
-.box .rightlist{
-	float: right;
-}
-
-.box .leftlist{
+.box .left-box{
 	float: left;
 }
 
-.box a{
+.box .right-box{
+	float: right;
+}
+
+
+.box .menu-a{
 	padding: 8px 12px;
 	color: rgba(255,255,255,0.5);
 	text-decoration: none;
 	position: relative;
 }
 
-.box a::before,
-.box a::after{
+.box .menu-a::before,
+.box .menu-a::after{
 	width: 14px;
 	height: 14px;
 	/*background-color: yellow;*/
@@ -52,11 +56,11 @@
 	opacity: 0;
 }
 
-.box a:hover{
+.box .menu-a:hover{
 	color: #ffffff;
 }
 
-.box a::after{
+.box .menu-a::after{
 	right: 0;
 	top: 0;
 	border-right: 3px solid #1e90ff;
@@ -64,7 +68,7 @@
 	transform: translate(-100%,50%);	
 }
 
-.box a::before{
+.box .menu-a::before{
 	left: 0;
 	bottom: 0;
 	border-left: 3px solid #1e90ff;
@@ -72,8 +76,63 @@
 	transform: translate(100%,-50%);
 }
 
-.box a:hover::before,
-.box a:hover::after{
+.box .menu-a:hover::before,
+.box .menu-a:hover::after{
 	transform: translate(0%,0%);
 	opacity: 1;
+}
+
+.box .auth-box{
+	margin: 8px 16px;
+	float: right;
+	width: 40px;
+	height: 21px;
+}
+
+
+
+.auth-middle{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	float: right;
+	top: 20px;
+	left: 1300px;
+	/*width: 21px*/
+}
+
+.sm-container{
+	text-align: center;
+}
+
+.sm-container i{
+	color: #f5f6fa;
+	padding: 20px;
+	font-size: 20px;
+	cursor: pointer;
+	transition: 0.4s;
+	
+}
+
+.sm-container i:hover{
+	transform: scale(1.2);
+}
+
+.sm-menu{
+	background: #487eb0;
+	position: absolute;
+	border-radius: 8px ;
+	display: none;
+
+}
+
+.sm-menu::before{
+	content: "";
+	width: 10px;
+	height: 10px;
+	background: #487EB0;
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	transform: translateX(-50%) rotate(45deg);
+	
 }

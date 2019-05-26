@@ -1,18 +1,45 @@
-<ul class="box">
-			<li><a href="{% url '主页' %}">首页</a></li>
-			<li><a href="{% url 'todolist:主页' %}">待办事项</a></li>
-			<li><a href="{% url '产品列表主页' %}">产品列表</a></li>
-			<li><a href="{% url 'todolist:关于' %}">关于</a></li>
+  <!--  <main role="main">
 
-			{% if user.is_authenticated %}
-			<li><a href="{% url '发布页面' %}">发布</a></li>
-			<li><a href="Javascript:{document.getElementById('退出').submit()}">退出</a></li>
-			<form id='退出' method='POST' action='{% url '退出页面' %}' >
-          	{% csrf_token %}
-          	<input type='hidden' >
-       		</form>
-			{%  else %}
-			<li><a href="{% url '登录页面' %}">登录</a></li>
-			<li><a href="{% url '注册页面' %}">注册</a></li>
-			{% endif %}				
-		</ul>
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">我的主页</h1>
+          <img src="{% static 'tupian.jpg'%}" width="100%">
+          <p>
+            <a href="blog" class="btn btn-primary my-2">我的博客</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+          	{% for gallery in gallerys.all  %}
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{gallery.image.url}}">
+                <div class="card-body">
+                  <p class="card-text">{{gallery.description}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer> -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
