@@ -25,12 +25,12 @@
 						<div class="service-box">
 							<div class="service-icon">
 								<!-- <i class="fas fa-paint-brush"></i> -->
-								<img src="{{blog.image.url}}" alt="" href="{{blog.id}}" >
+								<img src="{{blog.image.url}}" alt="" >
 								<!-- <a href=""></a> -->
 							</div>
-							<div class="service-title">{{blog.title}}</div>
+							<div class="service-title"><a href="{{blog.id}}">{{blog.title}}</a></div>
 							<div class="service-desc">
-								{{blog.short_text}}
+								{{blog.short_text }}
 							</div>		
 						</div>
 						{% endfor %}
@@ -43,5 +43,7 @@
 		</div>
 		
 	</body>
+
+	
 </html>
 {% endblock 主体 %}

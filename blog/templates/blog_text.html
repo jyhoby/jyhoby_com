@@ -1,8 +1,24 @@
-<div style="text-align:center;">
-	<h1>{{blog.title}}<h1>
-	<h3>{{blog.date}}</h3>
-	<img src="{{blog.image.url}}" height="50%">
-	<p>
-		{{blog.text}}
-	</p>
-</div>
+{% extends "menu.html" %}
+{% block 主体 %}
+
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="{% static 'css/blog_text.css' %}">
+		<title></title>
+	</head>
+	<body>
+		<div style="text-align:center;">
+			<h1>{{blog.title}}<h1>
+			<h3>{{blog.date}}</h3>
+			<img src="{{blog.image.url}}" height="50%">
+			<p>
+			{{blog.text}}
+			</p>
+		</div>
+
+	</body>
+</html>
+{% endblock 主体 %}

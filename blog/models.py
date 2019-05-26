@@ -14,4 +14,4 @@ class Blog(models.Model):
 
 
 	def short_text(self):
-		return self.text[:60]+'...'
+		return self.text[:40]+'...'

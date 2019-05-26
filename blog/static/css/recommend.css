@@ -109,3 +109,13 @@
 		max-width: 100%;
 	}
 }
+
+a:link{
+	color: #ddd;				
+}
+a:visited{
+	color: #ddd;
+}	
+a:active{
+	color: #000;
+}
