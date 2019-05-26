@@ -6,10 +6,14 @@
     	<meta name="author" content="">
 		<title>{% block 标题 %}Jyhoby主页{% endblock 标题 %}</title>
 		<!-- <link rel="stylesheet" href="../static/css/menu_style.css" /> -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
+		<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+		<link rel="stylesheet" href="{% static 'css/all.css' %}">
 		<link rel="stylesheet" href="{% static 'css/menu_style.css' %}">
     	<link rel="stylesheet" href="{% block css %}{% endblock css %}">
+    	
+    	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+    	<script src="{% static 'js/jquery-3.4.1.js' %}"></script>
 	</head>
 	<body>
 		<div class="box">
