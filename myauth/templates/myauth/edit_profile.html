@@ -5,6 +5,7 @@
 	<title>编辑个人信息</title>
 </head>
 <body>
+
 	
 	<h1></h1>
 		<a href="{% url 'myauth:主页' %}">回到主页</a>
@@ -14,6 +15,7 @@
 		<a href="{% url 'myauth:登出' %}">登出</a>
 		<form action="" method="POST">
 			{% csrf_token %}
+			
 			<p>
 				<label for="id_username">用户名:</label> 
 				<input type="text" name="username" value="{{用户.username}}" maxlength="150" required id="id_username" /> 

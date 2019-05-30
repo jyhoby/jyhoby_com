@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django import forms
 from captcha.fields import CaptchaField
 
-# class 自定义登录表单(AuthenticationForm):
-# 	验证码 = CaptchaField()
+class 自定义登录表单(AuthenticationForm):
+	验证码 = CaptchaField()
 	
 
 
@@ -27,7 +27,7 @@ class 自定义编辑表单(UserChangeForm):
 class 自定义注册表单(UserCreationForm):
 	昵称 = forms.CharField(required=False, max_length=50)
 	生日 = forms.DateField(required=False)
-	# 验证码 = CaptchaField()
+	验证码 = CaptchaField()
 
 	class Meta:
 		model = User

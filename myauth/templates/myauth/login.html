@@ -13,17 +13,20 @@
 		
 		<div class="login_box">
 			<h2>Login</h2>
-			<form action="{% url '登录页面' %}" method="POST">
+			<form action="{% url 'myauth:登录' %}" method="POST">
 				{% csrf_token %}
 				<div class="inputBox">
-					<input type="text" name="用户名" required="" autocomplete="off" />
+					<input type="text" name="username" required="" autocomplete="off" />
 					<label>Username</label>
 				</div>
 				<div class="inputBox">
-					<input type="password" name="密码" required=""  />
+					<input type="password" name="password" required=""  />
 					<label>password</label>
 				</div>
 				<div class="error">{{错误}}</div>
+
+				{{登录表单.验证码}}
+				{{登录表单.errors.验证码}}
 				<div class="btn-form">
 					<input type="submit" name="" id="" value="登录" />
 				</div>

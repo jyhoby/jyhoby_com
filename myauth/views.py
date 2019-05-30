@@ -2,14 +2,15 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm,AuthenticationForm
 from .forms import 自定义注册表单, 自定义编辑表单
-# from .forms import 自定义登录表单
-from django.contrib import auth
+from .forms import 自定义登录表单
+# from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import 普通会员表
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from random import randint
 import time
+
 
 #from .demo_sms_send import send_sms
 #params = u'{"code":"%d"}' % randint(100000,999999)
@@ -93,16 +94,18 @@ def home(request):
 
 def denglu(request):
 	if request.method=="POST":
-		登录表单 =AuthenticationForm(data=request.POST)
+		登录表单 =自定义登录表单(data=request.POST)
 		if 登录表单.is_valid():
 			user = authenticate(request, username=登录表单.cleaned_data['username'], password=登录表单.cleaned_data['password'] )
 			login(request,user)
-			return redirect("myauth:主页")
+			# return redirect("myauth:主页")
+			return redirect("主页")
 	else:
 		if request.user.is_authenticated:
-			return redirect("myauth:主页")
+			# return redirect("myauth:主页")
+			return redirect("主页")
 		else:
-			登录表单=AuthenticationForm()
+			登录表单=自定义登录表单()
 		
 	content={'登录表单':登录表单,'用户':request.user}
 	return render(request,'myauth/login.html',content)
@@ -110,7 +113,8 @@ def denglu(request):
 
 def dengchu(request):
 	logout(request)
-	return redirect("myauth:主页")
+	return redirect("主页")
+
 
 def zhuce(request):
 	if request.method=='POST':
@@ -120,13 +124,12 @@ def zhuce(request):
 			user=authenticate(username=注册表单.cleaned_data['username'],password=注册表单.cleaned_data['password1'])
 			user.email = 注册表单.cleaned_data['email']
 			普通会员表(用户=user,昵称=注册表单.cleaned_data['昵称'],生日=注册表单.cleaned_data['生日']).save()
-			# auth.login(request,user)
-			# return redirect("myauth:主页")
 			login(request,user)
-			return redirect("myauth:主页")
+			return redirect("主页")
 
 	else:
 		注册表单=自定义注册表单()
 
 	content={'注册表单':注册表单}
 	return render(request,"myauth/register.html",content)
+	

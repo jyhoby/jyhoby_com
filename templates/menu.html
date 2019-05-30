@@ -4,13 +4,9 @@
 	<head>
 		<meta charset="UTF-8">
     	<meta name="author" content="">
-		<title>{% block 标题 %}Jyhoby主页{% endblock 标题 %}</title>
-		<!-- <link rel="stylesheet" href="../static/css/menu_style.css" /> -->
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
-		<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+		<title>Jyhoby主页</title>
 		<link rel="stylesheet" href="{% static 'css/all.css' %}">
 		<link rel="stylesheet" href="{% static 'css/menu_style.css' %}">
-    	<link rel="stylesheet" href="{% block css %}{% endblock css %}">
     	<script src="{% static 'js/jquery-3.4.1.js' %}"></script>
 	</head>
 	<body>
@@ -21,6 +17,7 @@
 
 				<!-- <li class="li2"><a class="menu-a" href="{% url 'todolist:主页' %}">待办事项</a></li> -->
 				<!-- <li class="li2"><a class="menu-a" href="{% url '产品列表主页' %}">产品列表</a></li> -->
+
 				<li class="li2"><a class="menu-a" href="{% url 'todolist:关于' %}">关于</a></li>
 			</ul>
 			<ul class="auth-box">
@@ -31,7 +28,7 @@
 							<a href="#"><i class="fas fa-mobile-alt"></i></a>
 							<a href="#"><i class="fab fa-weixin"></i></a>
 							<a href="#"><i class="fab fa-qq"></i></a>
-							<a href="#"><i class="fas fa-user-edit"></i></a>
+							<a href="{% url 'myauth:个人中心' %}"><i class="fas fa-user-edit"></i></a>
 							<a href="#"><i class="fas fa-user-friends"></i></a>
 						</div>
 					</div>
@@ -41,15 +38,13 @@
 			<ul class="right-box">
 				
 			{% if user.is_authenticated %}
-			<li class="li2"><a class="menu-a" href="{% url '发布页面' %}">发布</a></li>
+			
 			<li class="li2"><a class="menu-a" href="Javascript:{document.getElementById('退出').submit()}">退出</a></li>
-			<form id='退出' method='POST' action='{% url '退出页面' %}' >
+			<form id='退出' method='POST' action="{% url 'myauth:登出' %}" >
           	{% csrf_token %}
           	<input type='hidden' >
        		</form>
 			{%  else %}
-			<!-- <li class="li2"><a class="menu-a" href="{% url '登录页面' %}">登录</a></li>
-			<li class="li2"><a class="menu-a" href="{% url '注册页面' %}">注册</a></li> -->
 			<li class="li2"><a class="menu-a" href="{% url 'myauth:登录' %}">登录</a></li>
 			<li class="li2"><a class="menu-a" href="{% url 'myauth:注册' %}">注册</a></li>
 			{% endif %}	

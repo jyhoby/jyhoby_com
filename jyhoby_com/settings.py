@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'todolist',
     'blog',
     'products',
-    'account',
+    # 'account',
     'myauth',
     'captcha',
 

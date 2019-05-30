@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 
+
 urlpatterns = [
     path('', views.welcome, name="欢迎页面"),
     path('home', views.home, name="主页"),
@@ -30,7 +31,7 @@ urlpatterns = [
 
     path('blog/', include('blog.urls')),
     path('product_list/', products.views.product_list, name='产品列表主页'),
-    path('account/', include('account.urls')),
+    # path('account/', include('account.urls')),
     path('products/', include('products.urls')),
 
     path('myauth/', include('myauth.urls')), #账户app路由
