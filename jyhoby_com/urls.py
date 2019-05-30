@@ -26,10 +26,14 @@ urlpatterns = [
     path('', views.welcome, name="欢迎页面"),
     path('home', views.home, name="主页"),
     path('admin/', admin.site.urls),
-    path('todo/', include(todolist.urls)),
-    # path('', include(todolist.urls)),
+    path('todo/', include(todolist.urls)), #todolist app路由分配
+
     path('blog/', include('blog.urls')),
     path('product_list/', products.views.product_list, name='产品列表主页'),
     path('account/', include('account.urls')),
     path('products/', include('products.urls')),
+
+    path('myauth/', include('myauth.urls')), #账户app路由
+    path('captcha/', include('captcha.urls')), #短信验证码app路由
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

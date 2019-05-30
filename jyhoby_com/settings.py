@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'blog',
     'products',
     'account',
+    'myauth',
+    'captcha',
 
 ]
 

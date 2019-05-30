@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 	</head>
 	<body class="body_signup">
-		 
+		
 		<div class="login_box">
 			<h2>Signup</h2>
 			<form action="{% url '注册页面' %}" method="POST">
@@ -31,10 +31,7 @@
 				<div class="btn-form"">
 					<input type="submit" name="" id="" value="立即注册" />
 				</div>
-				{% if 注册表单.errors.username %}
-			<p>用户名已存在或格式不符合要求</p>
-			{{ 注册表单.errors.username }}
-			{% endif %}
+				
 			</form>		
 		</div>
 		

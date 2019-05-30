@@ -15,12 +15,14 @@ def signup(request):
             User.objects.get(username=user_name)
             return render(request,'signup.html',{'用户名错误': '用户名已存在'})
         except User.DoesNotExist:
+            #这里写正则
             if password1==password2:
                 User.objects.create_user(username=user_name,password=password1)
                 return redirect('主页')
             else:
                 return render(request,'signup.html',{'密码错误': '两次输入的密码不一致'})
-
+                
+ 
 
 
 def login(request): 
