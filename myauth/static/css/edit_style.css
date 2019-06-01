@@ -1,0 +1,29 @@
+*{
+	margin:0 ;
+	padding: 0;
+}
+body{
+	overflow: auto;
+	width: 1349px;
+	height: 700px
+
+}
+.box{
+	height: 38px;
+}
+.form1{
+	width: 600px;
+	height: 500px;
+	margin: 200px auto;
+
+
+}
+.col-sm-1{
+	width: 200px;
+}
+.col-sm-11{
+	width: 300px
+}
+.btn_box{
+	text-align: center; 
+}
