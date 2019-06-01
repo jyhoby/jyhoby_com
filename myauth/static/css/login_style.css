@@ -1,0 +1,115 @@
+.body_login{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	/*background: #34495E;*/
+	background: url(../img/login.jpg);
+	background-size: cover;
+	overflow: auto;
+	width: 1349px;
+	height: 700px
+}
+
+.body_signup{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	/*background: #34495E;*/
+	background: url(../img/signup.jpg);
+	background-size: cover;
+	overflow: auto;
+	width: 1349px;
+	height: 700px
+}
+
+.login_box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	padding: 40px;
+	background: rgba(0,0,0,.8);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+	 
+}
+
+.login_box h2{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;	
+}
+
+.login_box .inputBox
+{
+	position: relative;
+}
+
+.login_box .inputBox input
+{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	outline: none;
+	border-bottom:1px solid #fff; 
+	background: transparent;
+}
+
+.login_box .inputBox label
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	pointer-events: none;
+	transition: .5s;
+		
+}
+
+.login_box .inputBox input:focus ~ label,
+.login_box .inputBox input:valid ~ label
+{
+	top: -18px;
+	left: 0;
+	color: #03a9f4;
+	font-size: 12px;
+}
+
+.login_box input[type="submit"]
+{
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #FFF;
+	background: #03a9f4;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;		
+}
+
+.error{
+	text-align: center;
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	border: none;
+	outline: none;
+	background: transparent;
+}
+
+.btn-form{
+	width: 100%;
+	text-align:center;
+}

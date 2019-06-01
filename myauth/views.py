@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from random import randint
 import time
-
+from .mypage.my_re import isUserName, isPassWord #导入自定义的正则
 
 #from .demo_sms_send import send_sms
 #params = u'{"code":"%d"}' % randint(100000,999999)
@@ -118,14 +118,23 @@ def dengchu(request):
 
 def zhuce(request):
 	if request.method=='POST':
-		注册表单=自定义注册表单(request.POST)
-		if 注册表单.is_valid():
-			注册表单.save()
-			user=authenticate(username=注册表单.cleaned_data['username'],password=注册表单.cleaned_data['password1'])
-			user.email = 注册表单.cleaned_data['email']
-			普通会员表(用户=user,昵称=注册表单.cleaned_data['昵称'],生日=注册表单.cleaned_data['生日']).save()
-			login(request,user)
-			return redirect("主页")
+		username=request.POST["username"]
+		if isUserName(username):
+			password=request.POST["password1"]
+			if isPassWord(password):
+				注册表单=自定义注册表单(request.POST)
+				if 注册表单.is_valid():
+					注册表单.save()
+					user=authenticate(username=注册表单.cleaned_data['username'],password=注册表单.cleaned_data['password1'])
+					user.email = 注册表单.cleaned_data['email']
+					普通会员表(用户=user,昵称=注册表单.cleaned_data['昵称'],生日=注册表单.cleaned_data['生日']).save()
+					login(request,user)
+					return redirect("主页")
+			else:
+				return render(request,"myauth/register.html",{"密码格式错误":"密码格式错误"})
+		else:
+			return render(request,"myauth/register.html",{"用户名格式错误":"用户名格式错误"})
+
 
 	else:
 		注册表单=自定义注册表单()
