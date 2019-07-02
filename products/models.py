@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+
 class Product(models.Model):
 	title=models.CharField(default='例：抖音-用短视频记录美好生活',max_length=50)
 	intro=models.TextField(default='在这里写简介')

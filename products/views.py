@@ -23,6 +23,7 @@ def publish(request):
 		intro= request.POST["介绍"]
 		url= request.POST["APP链接"]
 
+
 		try:
 			icon= request.FILES['APP图标']
 			image= request.FILES['大图']

@@ -33,9 +33,10 @@ def 编辑个人信息(request):
 			编辑表单.save()
 			request.user.普通会员表.昵称=编辑表单.cleaned_data['昵称']
 			request.user.普通会员表.生日=编辑表单.cleaned_data['生日']
+			# request.user.普通会员表.用户头像 = 编辑表单.cleaned_data['用户头像']
 			request.user.普通会员表.save()
 			# user=authenticate(username=注册表单.cleaned_data['username'],password=注册表单.cleaned_data['password1'])
-			return redirect("myauth:个人中心")
+			return redirect("主页")
 
 	else:
 		编辑表单=自定义编辑表单(instance=request.user)
@@ -100,6 +101,8 @@ def denglu(request):
 			login(request,user)
 			# return redirect("myauth:主页")
 			return redirect("主页")
+		else:
+			return render(request,'myauth/login.html',{"错误":"用户名或密码错误"})
 	else:
 		if request.user.is_authenticated:
 			# return redirect("myauth:主页")
