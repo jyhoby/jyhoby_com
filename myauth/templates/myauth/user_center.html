@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>个人中心</title>
+	{% load static %}
 </head>
 <body>
 	<h1>222</h1>
@@ -17,6 +18,8 @@
 		<p>{{ 用户.邮箱 }}</p>
 		<p>{{ 用户.普通会员表.昵称}}</p>
 		<p>{{ 用户.普通会员表.生日}}</p>
+		<p><img src="/static/icon/3aa579b9-2758-468b-8c4f-90fb7deadd6e.jpg"></p>
+		<p>{{用户.普通会员表.用户头像}}</p>
 
 
 	</div>

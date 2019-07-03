@@ -1,6 +1,11 @@
+import os
+import uuid
+
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm,AuthenticationForm
+
+from jyhoby_com.settings import MEDIA_ROOT
 from .forms import 自定义注册表单, 自定义编辑表单
 from .forms import 自定义登录表单
 # from django.contrib import auth
@@ -27,13 +32,21 @@ def 个人中心(request):
 
 @login_required(login_url='myauth:登录')
 def 编辑个人信息(request):
-	if request.method=='POST':
-		编辑表单=自定义编辑表单(request.POST,instance=request.user)
+	if request.method == 'POST':
+		编辑表单 = 自定义编辑表单(request.POST,instance=request.user)
 		if 编辑表单.is_valid():
 			编辑表单.save()
 			request.user.普通会员表.昵称=编辑表单.cleaned_data['昵称']
 			request.user.普通会员表.生日=编辑表单.cleaned_data['生日']
-			# request.user.普通会员表.用户头像 = 编辑表单.cleaned_data['用户头像']
+			icon_file = request.FILES.get('icon')
+			file_name = gen_name() + os.path.splitext(icon_file.name)[-1]
+			path = os.path.join(MEDIA_ROOT, file_name)
+			with open(path, 'ab') as fp:
+				for part in icon_file.chunks():
+					fp.write(part)
+					fp.flush()
+
+			request.user.普通会员表.用户头像 = '/icon/' + file_name
 			request.user.普通会员表.save()
 			# user=authenticate(username=注册表单.cleaned_data['username'],password=注册表单.cleaned_data['password1'])
 			return redirect("主页")
@@ -86,7 +99,8 @@ def 修改密码(request):
 	# 	改密表单=PasswordChangeForm(user=request.user)
 
 	# # content={'改密表单':改密表单,'用户':request.user,'验证码错误':验证码错误}
-	content={'改密表单':改密表单,'用户':request.user}
+	# content={'改密表单':改密表单,'用户':request.user}
+	content={}
 	return render(request,"myauth/change_password.html",content)
 
 def home(request):
@@ -144,4 +158,10 @@ def zhuce(request):
 
 	content={'注册表单':注册表单}
 	return render(request,"myauth/register.html",content)
-	
+
+
+
+def gen_name():
+    uid = str(uuid.uuid4())
+
+    return uid
