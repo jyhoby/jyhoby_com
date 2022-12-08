@@ -2,7 +2,7 @@ aliyun-python-sdk-core==2.13.1
 aliyun-python-sdk-core-v3==2.13.0
 aliyun-python-sdk-dysmsapi==1.0.0
 aliyun-python-sdk-ecs==4.16.1
-certifi==2019.3.9
+certifi==2022.12.7
 cffi==1.12.3
 chardet==3.0.4
 Click==7.0
